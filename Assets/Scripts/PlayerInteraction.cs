@@ -348,7 +348,7 @@ public class PlayerInteraction : MonoBehaviour {
 				this.transform.Find ("tapa").gameObject.GetComponent<AudioSource> ().Play();
 				if (rightPalm.Equals ("palmtree3"))
 					GameManager.instance.bearInteraction++;
-					GameObject banana = collider.transform.GetChild (bananaqtd).gameObject;
+					GameObject banana = collider.transform.GetChild (0).gameObject;
 					banana.GetComponent<Rigidbody2D> ().gravityScale = 1;
 			}
 			break;
@@ -399,6 +399,8 @@ public class PlayerInteraction : MonoBehaviour {
 		}
 		animator.SetTrigger ("idle");
 		GameManager.instance.final = false;
+		TurnOnMessage (this.transform.GetChild (0).gameObject);
+		StartCoroutine (CloseMessageAfterTime());
 	}
 
 	void Update(){
